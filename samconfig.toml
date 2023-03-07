@@ -48,7 +48,7 @@ force_upload = true
 # Using a "parameter_overrides" setting here would block using CI envvars, as only
 # one overrides source is used and this source doesn't pass through shell interpolation.
 
-[development.logs]
+[production.logs]
 [development.logs.parameters]
 stack_name = "BallotCacheWriter-production"
 name = "BallotCacheWriterFunction"
