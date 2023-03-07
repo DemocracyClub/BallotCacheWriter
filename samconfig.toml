@@ -30,3 +30,26 @@ force_upload = true
 stack_name = "BallotCacheWriter-development"
 name = "BallotCacheWriterFunction"
 region = "eu-west-2"
+
+[production]
+
+[production.deploy]
+[production.deploy.parameters]
+stack_name = "BallotCacheWriter-production"
+s3_bucket = "ballot-cache-writer-production-artifacts-production-075b482c18"
+s3_prefix = "production"
+region = "eu-west-2"
+confirm_changeset = false
+capabilities = "CAPABILITY_IAM"
+tags = "dc-product=\"wcivf\" dc-environment=\"production\""
+progressbar = false
+fail_on_empty_changeset = false
+force_upload = true
+# Using a "parameter_overrides" setting here would block using CI envvars, as only
+# one overrides source is used and this source doesn't pass through shell interpolation.
+
+[development.logs]
+[development.logs.parameters]
+stack_name = "BallotCacheWriter-production"
+name = "BallotCacheWriterFunction"
+region = "eu-west-2"

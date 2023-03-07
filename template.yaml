@@ -11,6 +11,13 @@ Globals:
     Timeout: 60
     MemorySize: 128
 
+Parameters:
+
+  S3Bucket:
+    Default: BALLOT_CACHE_S3_BUCKET
+    Description: "The S3 bucket to write to."
+    Type: AWS::SSM::Parameter::Value<String>
+
 Resources:
   BallotCacheWriterFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
@@ -24,7 +31,7 @@ Resources:
         - x86_64
       Environment:
         Variables:
-          S3_BUCKET: 'ballot-cache-test'
+          S3_BUCKET: !Ref S3Bucket
       Events:
         UpdateS3Bucket:
           Type: Schedule
@@ -37,8 +44,8 @@ Resources:
               Action:
                 - s3:*
               Resource:
-                - 'arn:aws:s3:::ballot-cache-test'
-                - 'arn:aws:s3:::ballot-cache-test/*'
+                - !Sub 'arn:aws:s3:::${S3Bucket}'
+                - !Sub 'arn:aws:s3:::${S3Bucket}/*'
 
 Outputs:
   BallotCacheWriterFunction:
