@@ -1,0 +1,56 @@
+{
+  "polling_station_known": false,
+  "postcode_location": {
+    "type": "Feature",
+    "properties": null,
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        -2.9846311697674426,
+        53.04311189767441
+      ]
+    }
+  },
+  "custom_finder": null,
+  "advance_voting_station": null,
+  "council": {
+    "url": "https://wheredoivote.co.uk/api/beta/councils/WRX/?format=json",
+    "council_id": "WRX",
+    "name": "Wrexham County Borough Council",
+    "email": "electoral@wrexham.gov.uk",
+    "phone": "01978 292020",
+    "website": "http://www.wrexham.gov.uk/",
+    "postcode": "LL11 1AY",
+    "address": "Electoral Registration Officer\nThe Guildhall\nWrexham",
+    "electoral_services_contacts": {
+      "phone_numbers": [
+        "01978 292020"
+      ],
+      "email": "electoral@wrexham.gov.uk",
+      "address": "Electoral Registration Officer\nThe Guildhall\nWrexham",
+      "postcode": "LL11 1AY",
+      "website": "http://www.wrexham.gov.uk/"
+    },
+    "registration_contacts": null,
+    "identifiers": [
+      "W06000006"
+    ],
+    "nation": "Wales"
+  },
+  "polling_station": null,
+  "addresses": [],
+  "report_problem_url": null,
+  "metadata": null,
+  "ballots": [
+    {
+      "ballot_paper_id": "local.wrexham.smithfield.by.2023-02-23",
+      "ballot_title": "Wrexham local election Smithfield by-election",
+      "poll_open_date": "2023-02-23",
+      "elected_role": "Local Councillor",
+      "metadata": null,
+      "cancelled": false,
+      "replaced_by": null,
+      "replaces": null
+    }
+  ]
+}

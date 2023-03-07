@@ -1,0 +1,49 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  ballot-writer
+
+  Sample SAM Template for ballot-writer
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 60
+    MemorySize: 128
+
+Resources:
+  BallotCacheWriterFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: ballot_writer/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      MemorySize: 128
+      ReservedConcurrentExecutions: 1  # Only allow one instance at a time
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          S3_BUCKET: 'ballot-cache-test'
+      Events:
+        UpdateS3Bucket:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 minute)
+      Policies:
+        - Statement:
+            - Sid: BallotWriterS3Access
+              Effect: Allow
+              Action:
+                - s3:*
+              Resource:
+                - 'arn:aws:s3:::ballot-cache-test'
+                - 'arn:aws:s3:::ballot-cache-test/*'
+
+Outputs:
+  BallotCacheWriterFunction:
+    Description: "BallotCacheWriterFunction ARN"
+    Value: !GetAtt BallotCacheWriterFunction.Arn
+  BallotCacheWriterFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt BallotCacheWriterFunction.Arn

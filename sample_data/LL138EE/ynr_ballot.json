@@ -1,0 +1,170 @@
+{
+  "url": "https://candidates.democracyclub.org.uk/api/next/ballots/local.wrexham.smithfield.by.2023-02-23/",
+  "history_url": "https://candidates.democracyclub.org.uk/api/next/ballots/local.wrexham.smithfield.by.2023-02-23/history/",
+  "results_url": "https://candidates.democracyclub.org.uk/api/next/results/local.wrexham.smithfield.by.2023-02-23/",
+  "election": {
+    "election_id": "local.wrexham.2023-02-23",
+    "url": "https://candidates.democracyclub.org.uk/api/next/elections/local.wrexham.2023-02-23/",
+    "name": "Wrexham local election",
+    "election_date": "2023-02-23",
+    "current": true,
+    "party_lists_in_use": false,
+    "created": "2023-01-24T09:30:04.068894Z",
+    "last_updated": "2023-01-24T09:30:04.068919Z"
+  },
+  "post": {
+    "id": "WRX:smithfield",
+    "label": "Smithfield",
+    "slug": "smithfield",
+    "created": "2022-01-05T10:30:43.101205Z",
+    "last_updated": "2022-01-05T10:30:43.101228Z"
+  },
+  "winner_count": 1,
+  "ballot_paper_id": "local.wrexham.smithfield.by.2023-02-23",
+  "cancelled": false,
+  "sopn": {
+    "document_type": "Nomination paper",
+    "uploaded_file": "https://static-candidates.democracyclub.org.uk/media/official_documents/local.wrexham.smithfield.by.2023-02-23/sopn-smithfield-jan23.pdf",
+    "source_url": "https://www.wrexham.gov.uk/sites/default/files/2023-01/sopn-smithfield-jan23.pdf"
+  },
+  "candidates_locked": true,
+  "candidacies": [
+    {
+      "elected": null,
+      "party_list_position": null,
+      "party": {
+        "url": "https://candidates.democracyclub.org.uk/api/next/parties/ynmp-party:2/",
+        "ec_id": "ynmp-party:2",
+        "name": "Independent",
+        "legacy_slug": "ynmp-party:2",
+        "created": "2018-09-17T15:01:01.011329+01:00",
+        "modified": "2023-02-17T02:10:07.615578Z"
+      },
+      "party_name": "Independent",
+      "party_description_text": "",
+      "created": "2023-01-30T10:34:04.251194Z",
+      "modified": "2023-01-30T10:34:04.253525Z",
+      "person": {
+        "id": 29049,
+        "url": "https://candidates.democracyclub.org.uk/api/next/people/29049/",
+        "name": "Richard Bennett"
+      },
+      "result": null
+    },
+    {
+      "elected": null,
+      "party_list_position": null,
+      "party": {
+        "url": "https://candidates.democracyclub.org.uk/api/next/parties/PP53/",
+        "ec_id": "PP53",
+        "name": "Labour Party",
+        "legacy_slug": "party:53",
+        "created": "2018-09-17T15:01:09.580623+01:00",
+        "modified": "2023-02-17T02:10:08.274970Z"
+      },
+      "party_name": "Labour Party",
+      "party_description_text": "Welsh Labour | Llafur Cymru",
+      "created": "2023-01-28T05:00:31.810468Z",
+      "modified": "2023-01-30T11:05:21.686371Z",
+      "person": {
+        "id": 95523,
+        "url": "https://candidates.democracyclub.org.uk/api/next/people/95523/",
+        "name": "Siôn Edwards"
+      },
+      "result": null
+    },
+    {
+      "elected": null,
+      "party_list_position": null,
+      "party": {
+        "url": "https://candidates.democracyclub.org.uk/api/next/parties/ynmp-party:2/",
+        "ec_id": "ynmp-party:2",
+        "name": "Independent",
+        "legacy_slug": "ynmp-party:2",
+        "created": "2018-09-17T15:01:01.011329+01:00",
+        "modified": "2023-02-17T02:10:07.615578Z"
+      },
+      "party_name": "Independent",
+      "party_description_text": "",
+      "created": "2023-01-30T10:38:38.502583Z",
+      "modified": "2023-01-30T10:38:38.504848Z",
+      "person": {
+        "id": 29052,
+        "url": "https://candidates.democracyclub.org.uk/api/next/people/29052/",
+        "name": "Jayne Carol Johnson"
+      },
+      "result": null
+    },
+    {
+      "elected": null,
+      "party_list_position": null,
+      "party": {
+        "url": "https://candidates.democracyclub.org.uk/api/next/parties/PP77/",
+        "ec_id": "PP77",
+        "name": "Plaid Cymru - The Party of Wales",
+        "legacy_slug": "party:77",
+        "created": "2018-09-17T15:01:09.344484+01:00",
+        "modified": "2023-02-17T02:10:10.170791Z"
+      },
+      "party_name": "Plaid Cymru - The Party of Wales",
+      "party_description_text": "",
+      "created": "2023-01-30T10:38:38.587260Z",
+      "modified": "2023-01-30T10:38:38.589705Z",
+      "person": {
+        "id": 95535,
+        "url": "https://candidates.democracyclub.org.uk/api/next/people/95535/",
+        "name": "Jon Jolley"
+      },
+      "result": null
+    },
+    {
+      "elected": null,
+      "party_list_position": null,
+      "party": {
+        "url": "https://candidates.democracyclub.org.uk/api/next/parties/PP90/",
+        "ec_id": "PP90",
+        "name": "Liberal Democrats",
+        "legacy_slug": "party:90",
+        "created": "2018-09-17T15:01:08.091504+01:00",
+        "modified": "2023-02-17T02:10:08.488143Z"
+      },
+      "party_name": "Liberal Democrats",
+      "party_description_text": "Welsh Liberal Democrats | Democratiaid Rhyddfrydol Cymru",
+      "created": "2023-01-30T10:38:38.726250Z",
+      "modified": "2023-01-30T10:38:38.728501Z",
+      "person": {
+        "id": 30428,
+        "url": "https://candidates.democracyclub.org.uk/api/next/people/30428/",
+        "name": "Graham Kelly"
+      },
+      "result": null
+    },
+    {
+      "elected": null,
+      "party_list_position": null,
+      "party": {
+        "url": "https://candidates.democracyclub.org.uk/api/next/parties/ynmp-party:2/",
+        "ec_id": "ynmp-party:2",
+        "name": "Independent",
+        "legacy_slug": "ynmp-party:2",
+        "created": "2018-09-17T15:01:01.011329+01:00",
+        "modified": "2023-02-17T02:10:07.615578Z"
+      },
+      "party_name": "Independent",
+      "party_description_text": "",
+      "created": "2023-01-30T10:38:38.674028Z",
+      "modified": "2023-01-30T10:38:38.676250Z",
+      "person": {
+        "id": 95536,
+        "url": "https://candidates.democracyclub.org.uk/api/next/people/95536/",
+        "name": "Toni Prince"
+      },
+      "result": null
+    }
+  ],
+  "created": "2023-01-24T09:30:04.081778Z",
+  "last_updated": "2023-01-30T11:15:24.534079Z",
+  "replaces": null,
+  "replaced_by": null,
+  "uncontested": false
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "ballot_paper_id": "local.wrexham.smithfield.by.2023-02-23",
+    "absolute_url": "http://wcivf-alb-648452467.eu-west-2.elb.amazonaws.com/elections/local.wrexham.smithfield.by.2023-02-23/smithfield/",
+    "election_date": "2023-02-23",
+    "election_name": "Wrexham local  by-election",
+    "election_id": "local.wrexham.2023-02-23",
+    "post": {
+      "post_name": "Smithfield",
+      "post_slug": "WRX:smithfield"
+    },
+    "cancelled": false,
+    "ballot_locked": true,
+    "replaced_by": null,
+    "candidates": [
+      {
+        "list_position": null,
+        "party": {
+          "party_id": "ynmp-party:2",
+          "party_name": "Independent"
+        },
+        "person": {
+          "ynr_id": 29049,
+          "name": "Richard Bennett",
+          "absolute_url": "http://wcivf-alb-648452467.eu-west-2.elb.amazonaws.com/person/29049/richard-bennett",
+          "email": null,
+          "photo_url": null,
+          "leaflets": null
+        },
+        "previous_party_affiliations": null
+      },
+      {
+        "list_position": null,
+        "party": {
+          "party_id": "party:53",
+          "party_name": "Labour Party"
+        },
+        "person": {
+          "ynr_id": 95523,
+          "name": "Siôn Edwards",
+          "absolute_url": "http://wcivf-alb-648452467.eu-west-2.elb.amazonaws.com/person/95523/sion-edwards",
+          "email": null,
+          "photo_url": "https://static-candidates.democracyclub.org.uk/media/cache/4b/f4/4bf46272cdf80aa5e018cb6d2cabde2e.jpg",
+          "leaflets": null
+        },
+        "previous_party_affiliations": [
+          {
+            "party_id": "party:77",
+            "party_name": "Plaid Cymru - The Party of Wales"
+          }
+        ]
+      },
+      {
+        "list_position": null,
+        "party": {
+          "party_id": "ynmp-party:2",
+          "party_name": "Independent"
+        },
+        "person": {
+          "ynr_id": 29052,
+          "name": "Jayne Carol Johnson",
+          "absolute_url": "http://wcivf-alb-648452467.eu-west-2.elb.amazonaws.com/person/29052/jayne-carol-johnson",
+          "email": null,
+          "photo_url": null,
+          "leaflets": null
+        },
+        "previous_party_affiliations": null
+      },
+      {
+        "list_position": null,
+        "party": {
+          "party_id": "party:77",
+          "party_name": "Plaid Cymru - The Party of Wales"
+        },
+        "person": {
+          "ynr_id": 95535,
+          "name": "Jon Jolley",
+          "absolute_url": "http://wcivf-alb-648452467.eu-west-2.elb.amazonaws.com/person/95535/jon-jolley",
+          "email": null,
+          "photo_url": null,
+          "leaflets": null
+        },
+        "previous_party_affiliations": null
+      },
+      {
+        "list_position": null,
+        "party": {
+          "party_id": "party:90",
+          "party_name": "Liberal Democrats"
+        },
+        "person": {
+          "ynr_id": 30428,
+          "name": "Graham Kelly",
+          "absolute_url": "http://wcivf-alb-648452467.eu-west-2.elb.amazonaws.com/person/30428/graham-kelly",
+          "email": null,
+          "photo_url": "https://static-candidates.democracyclub.org.uk/media/cache/68/2b/682ba6e0338e0d8be4ea5c7105ca8ce7.jpg",
+          "leaflets": null
+        },
+        "previous_party_affiliations": null
+      },
+      {
+        "list_position": null,
+        "party": {
+          "party_id": "ynmp-party:2",
+          "party_name": "Independent"
+        },
+        "person": {
+          "ynr_id": 95536,
+          "name": "Toni Prince",
+          "absolute_url": "http://wcivf-alb-648452467.eu-west-2.elb.amazonaws.com/person/95536/toni-prince",
+          "email": null,
+          "photo_url": null,
+          "leaflets": null
+        },
+        "previous_party_affiliations": null
+      }
+    ],
+    "voting_system": {
+      "slug": "FPTP",
+      "name": "First-past-the-post",
+      "uses_party_lists": false
+    },
+    "seats_contested": 1,
+    "organisation_type": "local-authority",
+    "hustings": null
+  }
+]
