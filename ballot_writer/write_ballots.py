@@ -76,7 +76,7 @@ class S3WriterBackend(BaseWriterBackend):
 
     def write_last_updated(self, ballot_dict: dict):
         print(
-            f"WRITING {self.last_updated_file=} with the content {ballot_dict['last_updated']=}"
+            f"WRITING {self.last_updated_file=} with {ballot_dict['last_updated']=}"
         )
         self.bucket.put_object(
             Key=self.last_updated_file,

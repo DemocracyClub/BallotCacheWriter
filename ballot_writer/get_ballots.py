@@ -2,6 +2,7 @@ import os
 from typing import Optional
 
 import requests
+from pydantic import ValidationError
 
 from write_ballots import LocalFileBackend, S3WriterBackend
 from models import WCIVFBallot
@@ -38,7 +39,7 @@ def update_ballots(backend):
             continue
         try:
             ballot_model = WCIVFBallot.parse_obj(ballot)
-        except:
+        except ValidationError:
             continue
         backend.save_ballot(ballot_model)
         seen_ballots.add(ballot_model.ballot_paper_id)
