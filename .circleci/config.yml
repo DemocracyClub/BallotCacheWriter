@@ -59,6 +59,6 @@ workflows:
           name: sam_deploy_production
           dc-environment: production
           requires:
-            - install_and_update_dependencies
+            - sam_deploy_development
           context: [ deployment-production-wcivf ]
           filters: { branches: { only: [ main ] } }
