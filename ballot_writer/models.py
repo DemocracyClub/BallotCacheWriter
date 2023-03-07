@@ -36,5 +36,3 @@ class WCIVFBallot(Ballot):
     poll_open_date: datetime.date = Field(alias="election_date")
     candidates_verified: bool = Field(alias="ballot_locked")
     wcivf_url: str = Field(alias="absolute_url")
-
-

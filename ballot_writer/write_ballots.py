@@ -67,19 +67,27 @@ class S3WriterBackend(BaseWriterBackend):
         self.bucket = self.s3.Bucket(os.environ.get("S3_BUCKET"))
 
     def write(self, path: str, ballot: WCIVFBallot):
-        self.bucket.put_object(Key=path, Body=ballot.json(indent=4))
+        self.bucket.put_object(
+            Key=path, Body=ballot.json(indent=4), ContentType="application/json"
+        )
 
     def get_path(self, ballot: WCIVFBallot):
         return f"{self.base_path}/{self._path_from_ballot(ballot)}"
 
     def write_last_updated(self, ballot_dict: dict):
-        print(f"WRITING {self.last_updated_file=} with the content {ballot_dict['last_updated']=}")
+        print(
+            f"WRITING {self.last_updated_file=} with the content {ballot_dict['last_updated']=}"
+        )
         self.bucket.put_object(
-            Key=self.last_updated_file, Body=ballot_dict["last_updated"]
+            Key=self.last_updated_file,
+            Body=ballot_dict["last_updated"],
+            ContentType="text/html",
         )
 
     def get_latest_write_date(self):
         try:
-            return self.bucket.Object(self.last_updated_file).get()["Body"].read().decode()
+            return (
+                self.bucket.Object(self.last_updated_file).get()["Body"].read().decode()
+            )
         except self.bucket.meta.client.exceptions.NoSuchKey:
             return super().get_latest_write_date()
