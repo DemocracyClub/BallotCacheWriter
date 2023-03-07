@@ -1,0 +1,64 @@
+version: 2.1
+orbs:
+  codecov: codecov/codecov@3.1.0
+
+jobs:
+  install_and_update_dependencies:
+    docker:
+      - image: cimg/python:3.9.15
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Pipfile.lock" }}-{{ checksum "ballot_writer/requirements.txt" }}
+      - run: &install-pipenv pip install -U pipenv pip --quiet --no-input
+      - run: pipenv install --dev
+      - run: pipenv run pipenv check # before save_cache so an insecure cache is never saved
+      - save_cache:
+          when: on_success
+          paths:
+            - ~/.local/share/virtualenvs/
+          key: v1-dependencies-{{ checksum "Pipfile.lock" }}-{{ checksum "ballot_writer/requirements.txt" }}
+  sam_deploy:
+    docker:
+      - image: cimg/python:3.9.15
+    working_directory: ~/repo/
+    parameters:
+      dc-environment:
+        type: enum
+        enum: [ development, production ]
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo/
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "Pipfile.lock" }}-{{ checksum "ballot_writer/requirements.txt" }}
+      - run: *install-pipenv
+      - run: pip install aws-sam-cli==1.76.0
+      - run: sam build
+      - run:
+          name: "pipenv run sam deploy"
+          command: |
+            pipenv run sam deploy --config-env <<parameters.dc-environment>>
+
+workflows:
+  version: 2
+  test_build_deploy:
+    jobs:
+      - install_and_update_dependencies
+      - sam_deploy:
+          name: sam_deploy_development
+          dc-environment: development
+          requires:
+            - install_and_update_dependencies
+          context: [ deployment-development-wcivf ]
+          filters: { branches: { only: [ main ] } }
+      - sam_deploy:
+          name: sam_deploy_production
+          dc-environment: production
+          requires:
+            - install_and_update_dependencies
+          context: [ deployment-production-wcivf ]
+          filters: { branches: { only: [ main ] } }
