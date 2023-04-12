@@ -18,6 +18,7 @@ def get_results_since(since: Optional[str] = None, current: Optional[bool] = Fal
         params["current"] = 1
     url = "https://whocanivotefor.co.uk/api/candidates_for_ballots/"
     req = requests.get(url, params=params)
+    print(req.url)
     ret = req.json()
     return ret
 
@@ -33,7 +34,7 @@ def get_backend(backend=None):
     return LocalFileBackend()
 
 
-def update_ballots(backend, current_only=False):
+def update_ballots(backend):
     since = backend.get_latest_write_date()
     results = get_results_since(since, current=backend.current_only)
     seen_ballots = set()
