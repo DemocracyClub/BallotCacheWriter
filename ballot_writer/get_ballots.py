@@ -41,10 +41,7 @@ def update_ballots(backend):
     for ii, ballot in enumerate(results):
         if ":" in ballot["ballot_paper_id"]:
             continue
-        try:
-            ballot_model = WCIVFBallot.parse_obj(ballot)
-        except ValidationError:
-            continue
+        ballot_model = WCIVFBallot.parse_obj(ballot)
         backend.save_ballot(ballot_model)
         seen_ballots.add(ballot_model.ballot_paper_id)
     if results:
