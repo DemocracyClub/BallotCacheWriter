@@ -39,7 +39,10 @@ class BaseWriterBackend(abc.ABC):
     def last_updated_path(self):
         last_updated_file = self.last_updated_file
         if self.current_only:
-            last_updated_file = self.last_updated_file.with_suffix(".current")
+            if isinstance(self.last_updated_file, str):
+                last_updated_file = self.last_updated_file + ".current"
+            else:
+                last_updated_file = self.last_updated_file.with_suffix(".current")
         return last_updated_file
 
 
