@@ -10,11 +10,14 @@ from models import WCIVFBallot
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 
 
-def get_results_since(since: Optional[str] = None):
+def get_results_since(since: Optional[str] = None, current: Optional[bool] = False):
     if not since:
         since = "1832-06-07"
+    params = {"modified_gt": since}
+    if current:
+        params["current"] = 1
     url = "https://whocanivotefor.co.uk/api/candidates_for_ballots/"
-    req = requests.get(url, params={"modified_gt": since})
+    req = requests.get(url, params=params)
     ret = req.json()
     return ret
 
@@ -30,9 +33,9 @@ def get_backend(backend=None):
     return LocalFileBackend()
 
 
-def update_ballots(backend):
+def update_ballots(backend, current_only=False):
     since = backend.get_latest_write_date()
-    results = get_results_since(since)
+    results = get_results_since(since, current=backend.current_only)
     seen_ballots = set()
     for ii, ballot in enumerate(results):
         if ":" in ballot["ballot_paper_id"]:
@@ -51,4 +54,5 @@ def update_ballots(backend):
 if __name__ == "__main__":
     for i in range(200):
         backend = get_backend()
+        backend.current_only = True
         update_ballots(backend)

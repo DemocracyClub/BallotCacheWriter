@@ -46,6 +46,34 @@ Resources:
               Resource:
                 - !Sub 'arn:aws:s3:::${S3Bucket}'
                 - !Sub 'arn:aws:s3:::${S3Bucket}/*'
+  CurrentBallotCacheWriterFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: ballot_writer/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      MemorySize: 128
+      ReservedConcurrentExecutions: 1  # Only allow one instance at a time
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          S3_BUCKET: !Ref S3Bucket
+          CURRENT_ONLY: "1"
+      Events:
+        UpdateS3Bucket:
+          Type: Schedule
+          Properties:
+            Schedule: rate(1 minute)
+      Policies:
+        - Statement:
+            - Sid: BallotWriterS3Access
+              Effect: Allow
+              Action:
+                - s3:*
+              Resource:
+                - !Sub 'arn:aws:s3:::${S3Bucket}'
+                - !Sub 'arn:aws:s3:::${S3Bucket}/*'
 
 Outputs:
   BallotCacheWriterFunction:
