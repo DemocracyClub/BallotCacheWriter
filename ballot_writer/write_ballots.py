@@ -98,7 +98,7 @@ class S3WriterBackend(BaseWriterBackend):
         )
 
     def get_latest_write_date(self):
-        last_updated_file = self.last_updated_path()
+        last_updated_file = self.last_updated_path
         try:
             return (
                 self.bucket.Object(last_updated_file).get()["Body"].read().decode()
