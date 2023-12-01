@@ -24,7 +24,7 @@ Resources:
     Properties:
       CodeUri: ballot_writer/
       Handler: app.lambda_handler
-      Runtime: python3.9
+      Runtime: python3.10
       MemorySize: 128
       ReservedConcurrentExecutions: 1  # Only allow one instance at a time
       Architectures:
@@ -51,7 +51,7 @@ Resources:
     Properties:
       CodeUri: ballot_writer/
       Handler: app.lambda_handler
-      Runtime: python3.9
+      Runtime: python3.10
       MemorySize: 128
       ReservedConcurrentExecutions: 1  # Only allow one instance at a time
       Architectures:
