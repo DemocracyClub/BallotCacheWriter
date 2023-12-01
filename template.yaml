@@ -8,7 +8,7 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 60
+    Timeout: 120
     MemorySize: 128
 
 Parameters:
@@ -36,7 +36,7 @@ Resources:
         UpdateS3Bucket:
           Type: Schedule
           Properties:
-            Schedule: rate(1 minute)
+            Schedule: rate(2 minutes)
       Policies:
         - Statement:
             - Sid: BallotWriterS3Access
@@ -64,7 +64,7 @@ Resources:
         UpdateS3Bucket:
           Type: Schedule
           Properties:
-            Schedule: rate(1 minute)
+            Schedule: rate(2 minutes)
       Policies:
         - Statement:
             - Sid: BallotWriterS3Access
