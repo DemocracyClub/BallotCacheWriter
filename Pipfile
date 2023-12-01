@@ -3,14 +3,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-[packages]
-aws-sam-cli = "==1.79.0"
-pyopenssl = "*"
-cryptography = "*"
-
 [dev-packages]
-black = "*"
 ruff = "*"
+pre-commit = "*"
+cfn-lint = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.10"
+
+[scripts]
+ruff = "ruff ."
+ruff-format = "ruff format ."
