@@ -8,3 +8,7 @@ ruff = "*"
 
 [requires]
 python_version = "3.10"
+
+[scripts]
+ruff = "ruff ."
+ruff-format = "ruff format ."
