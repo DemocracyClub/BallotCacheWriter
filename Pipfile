@@ -5,6 +5,8 @@ name = "pypi"
 
 [dev-packages]
 ruff = "*"
+pre-commit = "*"
+cfn-lint = "*"
 
 [requires]
 python_version = "3.10"
