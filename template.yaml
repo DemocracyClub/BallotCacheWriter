@@ -14,8 +14,13 @@ Globals:
 Parameters:
 
   S3Bucket:
-    Default: BALLOT_CACHE_S3_BUCKET
+    Default: BALLOT_CACHE_SENTRY_DSN
     Description: "The S3 bucket to write to."
+    Type: AWS::SSM::Parameter::Value<String>
+
+  SentryDSN:
+    Default: SENTRY_DSN
+    Description: The Sentry DSN, taken from the Sentry project
     Type: AWS::SSM::Parameter::Value<String>
 
 Resources:
@@ -32,6 +37,10 @@ Resources:
       Environment:
         Variables:
           S3_BUCKET: !Ref S3Bucket
+          SENTRY_DSN: !Ref SentryDSN
+          SENTRY_INITIAL_HANDLER: app.lambda_handler
+      Layers:
+        - arn:aws:lambda:eu-west-2:943013980633:layer:SentryPythonServerlessSDK:84
       Events:
         UpdateS3Bucket:
           Type: Schedule
@@ -60,6 +69,10 @@ Resources:
         Variables:
           S3_BUCKET: !Ref S3Bucket
           CURRENT_ONLY: "1"
+          SENTRY_DSN: !Ref SentryDSN
+          SENTRY_INITIAL_HANDLER: app.lambda_handler
+      Layers:
+        - arn:aws:lambda:eu-west-2:943013980633:layer:SentryPythonServerlessSDK:84
       Events:
         UpdateS3Bucket:
           Type: Schedule
