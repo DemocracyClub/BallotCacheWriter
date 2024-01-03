@@ -1,3 +1,4 @@
 requests==2.31.0
 pydantic==1.10.13
 git+https://github.com/DemocracyClub/dc_response_builder.git@0.0.12
+urllib3<2
