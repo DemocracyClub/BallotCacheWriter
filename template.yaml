@@ -28,7 +28,7 @@ Resources:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       CodeUri: ballot_writer/
-      Handler: app.lambda_handler
+      Handler: sentry_sdk.integrations.init_serverless_sdk.sentry_lambda_handler
       Runtime: python3.10
       MemorySize: 128
       ReservedConcurrentExecutions: 1  # Only allow one instance at a time
@@ -39,6 +39,7 @@ Resources:
           S3_BUCKET: !Ref S3Bucket
           SENTRY_DSN: !Ref SentryDSN
           SENTRY_INITIAL_HANDLER: app.lambda_handler
+          SENTRY_TRACES_SAMPLE_RATE: 0
       Layers:
         - arn:aws:lambda:eu-west-2:943013980633:layer:SentryPythonServerlessSDK:84
       Events:
@@ -59,7 +60,7 @@ Resources:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       CodeUri: ballot_writer/
-      Handler: app.lambda_handler
+      Handler: sentry_sdk.integrations.init_serverless_sdk.sentry_lambda_handler
       Runtime: python3.10
       MemorySize: 128
       ReservedConcurrentExecutions: 1  # Only allow one instance at a time
@@ -71,6 +72,7 @@ Resources:
           CURRENT_ONLY: "1"
           SENTRY_DSN: !Ref SentryDSN
           SENTRY_INITIAL_HANDLER: app.lambda_handler
+          SENTRY_TRACES_SAMPLE_RATE: 0
       Layers:
         - arn:aws:lambda:eu-west-2:943013980633:layer:SentryPythonServerlessSDK:84
       Events:
