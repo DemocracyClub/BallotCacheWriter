@@ -42,7 +42,9 @@ class BaseWriterBackend(abc.ABC):
             if isinstance(self.last_updated_file, str):
                 last_updated_file = self.last_updated_file + ".current"
             else:
-                last_updated_file = self.last_updated_file.with_suffix(".current")
+                last_updated_file = self.last_updated_file.with_suffix(
+                    ".current"
+                )
         return last_updated_file
 
 
@@ -90,7 +92,9 @@ class S3WriterBackend(BaseWriterBackend):
         return f"{self.base_path}/{self._path_from_ballot(ballot)}"
 
     def write_last_updated(self, ballot_dict: dict):
-        print(f"WRITING {self.last_updated_path=} with {ballot_dict['last_updated']=}")
+        print(
+            f"WRITING {self.last_updated_path=} with {ballot_dict['last_updated']=}"
+        )
         self.bucket.put_object(
             Key=self.last_updated_path,
             Body=ballot_dict["last_updated"],
@@ -100,6 +104,11 @@ class S3WriterBackend(BaseWriterBackend):
     def get_latest_write_date(self):
         last_updated_file = self.last_updated_path
         try:
-            return self.bucket.Object(last_updated_file).get()["Body"].read().decode()
+            return (
+                self.bucket.Object(last_updated_file)
+                .get()["Body"]
+                .read()
+                .decode()
+            )
         except self.bucket.meta.client.exceptions.NoSuchKey:
             return super().get_latest_write_date()

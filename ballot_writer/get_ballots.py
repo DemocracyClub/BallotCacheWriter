@@ -1,10 +1,9 @@
 import os
-from typing import Optional, List
+from typing import List, Optional
 
 import requests
-
-from write_ballots import LocalFileBackend, S3WriterBackend
 from models import WCIVFBallot
+from write_ballots import LocalFileBackend, S3WriterBackend
 
 BUCKET_NAME = os.environ.get("BUCKET_NAME")
 
@@ -17,7 +16,9 @@ IGNORE = [
 ]
 
 
-def get_results_since(since: Optional[str] = None, current: Optional[bool] = False):
+def get_results_since(
+    since: Optional[str] = None, current: Optional[bool] = False
+):
     if not since:
         since = "1832-06-07"
     params = {"modified_gt": since}
@@ -26,8 +27,7 @@ def get_results_since(since: Optional[str] = None, current: Optional[bool] = Fal
     url = "https://whocanivotefor.co.uk/api/candidates_for_ballots/"
     req = requests.get(url, params=params)
     print(req.url)
-    ret = req.json()
-    return ret
+    return req.json()
 
 
 def get_latest_from_results(results: dict):
