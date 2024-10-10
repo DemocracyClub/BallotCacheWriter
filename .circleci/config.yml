@@ -13,6 +13,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "Pipfile.lock" }}-{{ checksum "ballot_writer/requirements.txt" }}
       - run: pip install -U pipenv pip --quiet --no-input
+      - run: pipenv verify
       - run: pipenv sync --dev
       - run: pipenv run ruff-check
       - run: pipenv run ruff format --check .
