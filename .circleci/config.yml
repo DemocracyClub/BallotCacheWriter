@@ -14,8 +14,8 @@ jobs:
             - v1-dependencies-{{ checksum "Pipfile.lock" }}-{{ checksum "ballot_writer/requirements.txt" }}
       - run: pip install -U pipenv pip --quiet --no-input
       - run: pipenv install --dev
-      - run: pipenv run ruff
-      - run: pipenv run ruff-format
+      - run: pipenv run ruff-check
+      - run: pipenv run ruff format --check .
       - run: pipenv run pipenv check # before save_cache so an insecure cache is never saved
       - save_cache:
           when: on_success

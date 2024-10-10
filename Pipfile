@@ -12,5 +12,5 @@ cfn-lint = "==0.86.0"
 python_version = "3.12"
 
 [scripts]
-ruff = "ruff ."
+ruff-check = "ruff check ."
 ruff-format = "ruff format ."
