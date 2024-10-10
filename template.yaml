@@ -29,7 +29,7 @@ Resources:
     Properties:
       CodeUri: ballot_writer/
       Handler: sentry_sdk.integrations.init_serverless_sdk.sentry_lambda_handler
-      Runtime: python3.10
+      Runtime: python3.12
       MemorySize: 128
       ReservedConcurrentExecutions: 1  # Only allow one instance at a time
       Architectures:
@@ -61,7 +61,7 @@ Resources:
     Properties:
       CodeUri: ballot_writer/
       Handler: sentry_sdk.integrations.init_serverless_sdk.sentry_lambda_handler
-      Runtime: python3.10
+      Runtime: python3.12
       MemorySize: 128
       ReservedConcurrentExecutions: 1  # Only allow one instance at a time
       Architectures:

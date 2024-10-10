@@ -35,7 +35,9 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/repo/
-      - run: sam build
+      - run: |
+          pip install setuptools wheel
+          sam build
       - run:
           name: "sam deploy"
           command: |
