@@ -18,16 +18,13 @@ class BaseWriterBackend(abc.ABC):
         self.write(path, ballot)
 
     @abc.abstractmethod
-    def write(self, path: str, ballot: WCIVFBallot):
-        ...
+    def write(self, path: str, ballot: WCIVFBallot): ...
 
     @abc.abstractmethod
-    def write_last_updated(self, ballot_dict: dict):
-        ...
+    def write_last_updated(self, ballot_dict: dict): ...
 
     @abc.abstractmethod
-    def get_path(self, ballot: WCIVFBallot):
-        ...
+    def get_path(self, ballot: WCIVFBallot): ...
 
     def _path_from_ballot(self, ballot: WCIVFBallot):
         parts = ballot.ballot_paper_id.split(".")
