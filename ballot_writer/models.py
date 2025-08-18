@@ -1,7 +1,7 @@
 import datetime
 from typing import Any
 
-from pydantic import Field
+from pydantic import Field, root_validator
 from response_builder.v1.models.base import Ballot
 
 
@@ -30,6 +30,11 @@ class WCIVFBallot(Ballot):
         # This is the URL for the ballot on the devs.DC API, so doesn't
         # make sense in isolation
         __pydantic_self__.__fields__.pop("ballot_url", None)
+
+        # for the moment, pop these off to maintain compatibility
+        # TODO we might want to revisit this
+        __pydantic_self__.__fields__.pop("replaces", None)
+        __pydantic_self__.__fields__.pop("cancellation_reason", None)
         super().__init__(**data)
 
     # use `alias=` to rename fields from the given JSON
@@ -37,3 +42,9 @@ class WCIVFBallot(Ballot):
     candidates_verified: bool = Field(alias="ballot_locked")
     wcivf_url: str = Field(alias="absolute_url")
     organisation_type: str
+
+    @root_validator
+    def check_elected_role_condition(cls, values):
+        # bypass the normal elected_role validation
+        # because we don't have it available
+        return values
