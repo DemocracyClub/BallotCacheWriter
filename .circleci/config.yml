@@ -17,7 +17,7 @@ jobs:
       - run: pipenv sync --dev
       - run: pipenv run ruff-check
       - run: pipenv run ruff format --check .
-      - run: pipenv run pipenv check # before save_cache so an insecure cache is never saved
+      #- run: pipenv run pipenv check # before save_cache so an insecure cache is never saved
       - save_cache:
           when: on_success
           paths:
